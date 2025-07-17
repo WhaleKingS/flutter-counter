@@ -1,3 +1,6 @@
+//최상단 Appbar 부분에 [구구단 화면]이라는 텍스트가 중앙 정렬되게 작성을 하고,
+//body 부분에 1단~9단까지 구구단을 출력하는 기능을 하는 화면을 구성하세요.
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,35 +12,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'GuGuDan App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'GuGuDan'),
     );
   }
 }
 
-// StatefulWidget은 별다른 기능 없이 사용자가 값을 계속 변경할 수 있게 하는
-// State를 생성하는 기능만 가지고 있다.
 class MyHomePage extends StatefulWidget {
-  // MyHomePage 클래스의 생성자
   const MyHomePage({super.key, required this.title});
 
-  // 인스턴스 변수
   final String title;
 
-  // 사용자가 앱 사용 중 계속해서 값을 변경할 수 있는 state를 생성할 수 있게 해주는 함수
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-// State<MyHomePage> : MyHomePage 라는 클래스의 State입니다. 라는 것을 명시
 class _MyHomePageState extends State<MyHomePage> {
-  // 인스턴스 변수 (사용자가 앱에서 실제로 변경할 수 있는 값)
   int _counter = 0;
 
-  // _incrementCounter() : State 클래스 내에서 사용할 수 있는 기능(함수)
   void _incrementMinus() {
     setState(() {
       _counter--;
@@ -45,14 +40,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _incrementCounter() {
-    // setState : 이 클래스에서 가지고 있는 인스턴스 변수의 값을 바꿀 때 사용하는 기능(함수)
     setState(() {
       _counter++;
     });
   }
 
-  // State로 선언된 클래스는 현재 내가 가지고 있는 값을 어떻게 반환할건지
-  // build() 기능을 통해서 외부(StatefulWidget인 MyHomePage)로 전달해주어야 함.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+            const Text('[구구단 화면]'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
@@ -73,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      // 이 부분을 수정해서 왼쪽 버튼을 누르면- ,오른쪽 버튼을 누루면 + 하는 기능 추가
+
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -82,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
             tooltip: 'Increment',
             child: const Icon(Icons.remove),
           ),
-          // 빈칸을 뜻하는 클래스를 하나 푸가할 수도 있음 : padding
+
           Padding(padding: EdgeInsets.all(20)),
           FloatingActionButton(
             onPressed: _incrementCounter,
@@ -94,6 +86,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-//rnjsxodbsrnjsxodbsrnjsxodbsrnjsxodbs
